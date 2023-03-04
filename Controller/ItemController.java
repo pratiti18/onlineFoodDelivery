@@ -99,6 +99,19 @@ public class ItemController {
 		model.addAttribute("items", itemList);
 		return "item/listitem";
 	}
+	@GetMapping("/viewitems")
+	public String vistItems(@RequestParam("restaurantId")Integer restaurantId,Model model) {
+		List<Item> items=itemService.viewAllItems();
+		List<Item> itemList=new ArrayList<>();
+		for(Item item:items) {
+			Restaurant restro=item.getRestaurant();
+			if(restro.getRestaurantId()==restaurantId) {
+				itemList.add(item);
+			}
+		}
+		model.addAttribute("items", itemList);
+		return "item/viewitems";
+	}
 	
 	@GetMapping("/viewitem")
 	public String viewItem(@RequestParam("itemid")Long itemId, Model model) {
