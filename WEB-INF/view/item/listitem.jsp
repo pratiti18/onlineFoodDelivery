@@ -80,7 +80,7 @@
                 out.println("<tr>");
                 out.println("<td scope=\"row\">"+item.getItemName()+"</td>");
                 out.println("<td scope=\"row\">"+item.getCost()+"</td>");
-		
+		  out.println("<td><a href=\"http://localhost:5002/foodCart/addItemToCart?itemid=" +item.getItemId() +"\"><button>Add To Cart</button></a></td>");
                 out.println("</tr>");
               }
             
